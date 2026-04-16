@@ -1,18 +1,18 @@
 import { useFormik } from "formik";
-import Checkbox from "../../components/ui/Checkbox";
-import Input from "../../components/ui/TextField";
-import Textarea from "../../components/ui/Textarea";
+import Checkbox from "../ui/Checkbox";
+import Input from "../ui/TextField";
+import Textarea from "../ui/Textarea";
 import {
   productInitialValues,
   productValidationSchema,
 } from "../../validation/productSchema";
-import Button from "../../components/ui/Button";
-import UploadImage from "../../components/ui/UploadImage";
-import UploadProductCoverImage from "../../components/ui/UploadProductCoverImage";
-import CategoriesDropdown from "../../components/ui/CategoriesDropdown";
+import Button from "../ui/Button";
+import UploadImage from "../ui/UploadImage";
+import UploadProductCoverImage from "../ui/UploadProductCoverImage";
+import CategoriesDropdown from "../ui/CategoriesDropdown";
 import { useAddProductMutation } from "../../services/productApi/productApi";
 import { enqueueSnackbar } from "notistack";
-import ButtonLoader from "../../components/ui/ButtonLoader";
+import ButtonLoader from "../ui/ButtonLoader";
 
 const AddProductForm = () => {
   const [createProduct, { isLoading }] = useAddProductMutation();
@@ -53,17 +53,33 @@ const AddProductForm = () => {
       className="w-full bg-white space-y-4 mt-10 px-4 max-w-5xl"
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-        <Input label="Title" name="title" formik={formik} />
-        <Input label="Slug" name="slug" formik={formik} />
+        <Input
+          label="Title"
+          name="title"
+          formik={formik}
+          placeholder={`Nike T-Shirt`}
+        />
+        <Input
+          label="Slug"
+          name="slug"
+          formik={formik}
+          placeholder="nike-tshirt"
+        />
       </div>
 
       <Textarea
         label="Short Description"
         name="shortDescription"
         formik={formik}
+        placeholder={"Product short description..."}
       />
 
-      <Textarea label="Description" name="description" formik={formik} />
+      <Textarea
+        label="Description"
+        name="description"
+        formik={formik}
+        placeholder={"Product long description..."}
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         <UploadProductCoverImage formik={formik} />
@@ -72,13 +88,20 @@ const AddProductForm = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-        <Input type="number" label="Price" name="price" formik={formik} />
+        <Input
+          type="number"
+          label="Price"
+          name="price"
+          formik={formik}
+          placeholder="$99"
+        />
 
         <Input
           type="number"
           label="Discount (%)"
           name="discountPercentage"
           formik={formik}
+          placeholder="20%"
         />
       </div>
 
@@ -98,7 +121,7 @@ const AddProductForm = () => {
         <button
           type="submit"
           disabled={isLoading}
-          className="bg-(--primary-color) text-white h-11 text-center w-full font-medium text-base outline-none cursor-pointer relative border-radius max-w-40"
+          className="bg-(--primary-color) text-white h-12 text-center w-full font-medium text-base outline-none cursor-pointer relative border-radius max-w-40 disabled:cursor-none disabled:opacity-70"
         >
           {isLoading ? <ButtonLoader /> : "Add Product"}
         </button>

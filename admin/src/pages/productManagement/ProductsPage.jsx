@@ -43,10 +43,12 @@ const ProductsPage = () => {
         </div>
       </div>
 
-      <div className="w-full mt-5 flex items-center justify-end gap-3 flex-wrap">
-        <ProductFilter />
-        <ProductSortFilter />
-      </div>
+      {products && products?.length > 0 && (
+        <div className="w-full mt-5 flex items-center justify-end gap-3 flex-wrap">
+          <ProductFilter />
+          <ProductSortFilter />
+        </div>
+      )}
 
       {isLoading ? (
         <PageLoader />

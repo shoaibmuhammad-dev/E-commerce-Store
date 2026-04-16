@@ -15,6 +15,7 @@ const ProductPage = () => {
   const product = data?.product;
 
   if (isLoading) return <PageLoader />;
+
   return (
     <>
       <div className="">

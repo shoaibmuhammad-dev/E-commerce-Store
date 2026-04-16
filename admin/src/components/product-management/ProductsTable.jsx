@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import formatDate from "../../utils/formatDate";
 
 const ProductsTable = ({ products }) => {
+  console.log(products[0]);
   return (
     <div className="relative mt-5 overflow-x-auto bg-white">
       <table className="w-full text-sm text-left rtl:text-right text-body">
@@ -16,7 +18,11 @@ const ProductsTable = ({ products }) => {
               Price
             </th>
             <th scope="col" className="px-6 py-5">
-              Stock
+              Available Stock
+            </th>
+
+            <th scope="col" className="px-6 py-5">
+              Creation Date
             </th>
             <th scope="col" className="px-6 py-5 rounded-r-[10px]">
               Actions
@@ -52,6 +58,7 @@ const ProductsTable = ({ products }) => {
                 <td className="px-6 py-4">{product?.category?.title}</td>
                 <td className="px-6 py-4">${product?.finalPrice}</td>
                 <td className="px-6 py-4">{product?.stock}</td>
+                <td className="px-6 py-4">{formatDate(product?.createdAt)}</td>
                 <td className="px-6 py-4 space-x-3">
                   <Link
                     to={`/products/${product?.slug}/update`}

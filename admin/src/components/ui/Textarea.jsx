@@ -1,4 +1,4 @@
-const Textarea = ({ label, formik, ...props }) => (
+const Textarea = ({ label, formik, placeholder, ...props }) => (
   <div>
     <label className="block font-medium mb-1">{label}</label>
     <textarea
@@ -8,6 +8,7 @@ const Textarea = ({ label, formik, ...props }) => (
       onChange={formik.handleChange}
       onBlur={formik.handleBlur}
       value={formik.values[props.name]}
+      placeholder={placeholder}
     />
     {formik.touched[props.name] && formik.errors[props.name] && (
       <p className="text-red-500 text-sm">{formik.errors[props.name]}</p>

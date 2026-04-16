@@ -57,6 +57,14 @@ const AppRoutes = () => {
           </PrivateRoutes>
         }
       />
+      <Route
+        path="/products/:slug/update"
+        element={
+          <PrivateRoutes>
+            <DashboardLayout pages={<ProductPage />} />
+          </PrivateRoutes>
+        }
+      />
 
       {/* User management routes */}
       <Route

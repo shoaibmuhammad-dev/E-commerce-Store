@@ -3,6 +3,8 @@ import { useGetCategoriesQuery } from "../../services/categoryApi/categoryApi";
 const CategoriesDropdown = ({ formik }) => {
   const { data } = useGetCategoriesQuery();
 
+  const isSelected = !!formik.values.category;
+
   return (
     <div>
       <label className="block font-medium mb-1">Choose a category</label>
@@ -12,7 +14,9 @@ const CategoriesDropdown = ({ formik }) => {
         value={formik.values.category}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        className="w-full border rounded input border-radius"
+        className={`w-full border rounded input border-radius ${
+          isSelected ? "text-black" : "text-gray-400"
+        }`}
       >
         <option value="">Select a category</option>
 

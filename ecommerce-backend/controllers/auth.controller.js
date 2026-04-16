@@ -5,6 +5,18 @@ const { getResetPasswordToken } = require("../models/User.model");
 
 /* REGISTER */
 exports.register = async (req, res) => {
+  const { email } = req.body;
+
+  const isUser = await User.findOne({ email });
+
+  if (isUser) {
+    return res.status(409).json({
+      success: false,
+      message: "Email already exists.",
+      data: null,
+    });
+  }
+
   const user = await User.create(req.body);
   const token = generateToken(user._id);
 

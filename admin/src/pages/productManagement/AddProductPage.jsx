@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import AddProductForm from "./AddProductForm";
+import AddProductForm from "../../components/product-management/AddProductForm";
 import { FiArrowLeft } from "react-icons/fi";
 
 const AddProductPage = () => {

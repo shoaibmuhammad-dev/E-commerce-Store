@@ -6,7 +6,7 @@ export const userApi = createApi({
   baseQuery,
   tagTypes: ["User"],
   keepUnusedDataFor: 60,
-  refetchOnFocus: true,
+  refetchOnFocus: false,
   refetchOnReconnect: true,
 
   endpoints: (builder) => ({

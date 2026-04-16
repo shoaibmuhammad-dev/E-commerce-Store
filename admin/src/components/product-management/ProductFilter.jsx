@@ -54,7 +54,7 @@ const ProductFilter = () => {
       id="category"
       value={value}
       onChange={(e) => setValue(e.target.value)}
-      className="bg-(--secondary-bg) border-radius text-sm text-gray-500 h-12 px-4 outline-none"
+      className="bg-(--secondary-bg) border-radius border border-gray-100 text-sm text-gray-500 h-12 px-4 outline-none"
     >
       <option value="">Category</option>
       <option value="">All</option>

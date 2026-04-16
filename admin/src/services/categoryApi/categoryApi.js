@@ -6,7 +6,7 @@ export const categoryApi = createApi({
   baseQuery,
   tagTypes: ["Category"],
   keepUnusedDataFor: 60,
-  refetchOnFocus: true,
+  refetchOnFocus: false,
   refetchOnReconnect: true,
 
   endpoints: (builder) => ({

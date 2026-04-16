@@ -6,7 +6,7 @@ export const productApi = createApi({
   baseQuery,
   tagTypes: ["Product"],
   keepUnusedDataFor: 60,
-  refetchOnFocus: true,
+  refetchOnFocus: false,
   refetchOnReconnect: true,
 
   endpoints: (builder) => ({

@@ -18,10 +18,10 @@ const Sidebar = () => {
   };
   return (
     <div className="w-full h-full py-6 px-8 flex flex-col items-start gap-y-6 bg-white">
-      <div className="w-full">
+      <div className="w-full px-1">
         <Link
           to="/"
-          className="text-black font-semibold text-2xl uppercase leading-none logo-fonts"
+          className="text-black font-semibold text-2xl uppercase leading-none logo-fonts outline-none"
         >
           sparta
           <span className="text-(--primary-color) logo-fonts">x</span>

@@ -39,7 +39,7 @@ const ProductSortFilter = () => {
       id="sort"
       value={value}
       onChange={(e) => setValue(e.target.value)}
-      className="bg-(--secondary-bg) border-radius text-sm text-gray-500 h-12 px-4 outline-none"
+      className="bg-(--secondary-bg) border-radius text-sm text-gray-500 h-12 px-4 outline-none border border-gray-100"
     >
       <option value="">Sort By</option>
       <option value="">All</option>

@@ -1,4 +1,3 @@
-import ProductsTable from "../../components/product-management/ProductsTable";
 import SearchField from "../../components/ui/SearchField";
 
 const OrdersPage = () => {
@@ -10,8 +9,6 @@ const OrdersPage = () => {
           <SearchField placeholder={"Search orders...."} />
         </div>
       </div>
-
-      <ProductsTable />
     </main>
   );
 };
