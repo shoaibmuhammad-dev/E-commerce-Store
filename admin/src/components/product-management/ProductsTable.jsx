@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import formatDate from "../../utils/formatDate";
 
 const ProductsTable = ({ products }) => {
-  console.log(products[0]);
   return (
     <div className="relative mt-5 overflow-x-auto bg-white">
       <table className="w-full text-sm text-left rtl:text-right text-body">
