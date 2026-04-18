@@ -1,5 +1,7 @@
 const cloudinary = require("../utils/cloudinary");
 const Product = require("../models/Product.model");
+const mongoose = require("mongoose");
+const Category = require("../models/Categories.model");
 
 exports.createProduct = async (req, res) => {
   try {
@@ -162,7 +164,16 @@ exports.getAllProducts = async (req, res) => {
 
     // Category filter
     if (category) {
-      filter.category = category;
+      const categoryDoc = await Category.findOne({ slug: category });
+
+      if (categoryDoc) {
+        filter.category = categoryDoc._id;
+      } else {
+        return res.status(404).json({
+          success: false,
+          message: "Category not found",
+        });
+      }
     }
 
     // Price range filter

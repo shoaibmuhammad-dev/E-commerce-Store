@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import ProductCard from "../Global/ProductCard";
 import { useLocation, useParams } from "react-router-dom";
 
-const ProductDetails = () => {
+const ProductDetails = ({ product }) => {
   const location = useLocation();
-  const { title } = useParams();
+  const { slug } = useParams();
 
   useEffect(() => {
-    document.title = `Spartax - ${title}`;
+    document.title = `Spartax - ${product?.title}`;
   }, []);
 
   return (
@@ -15,42 +15,40 @@ const ProductDetails = () => {
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="w-full h-[280px] lg:h-[540px] bg-gray-100 flex items-center justify-center">
           <img
-            src={location?.state?.product?.image}
-            alt="product-image"
+            src={product?.coverImage}
+            alt={`${product?.title} cover image`}
             className="object-contain w-full h-full"
           />
         </div>
         <div className="flex flex-col items-start gap-4">
           <p className="font-light text-gray-500 text-[15px] tracking-wider">
             Home /{" "}
-            {location?.state?.product?.category == "men"
+            {product?.category?.slug == "men"
               ? "Men"
-              : location?.state?.product?.category == "women"
+              : product?.category?.slug == "women"
                 ? "Women"
-                : location?.state?.product?.category == "shoes"
+                : product?.category?.slug == "shoes"
                   ? "Shoes"
                   : "Packs & Gear"}{" "}
-            / {title}
+            / {product?.title}
           </p>
           <p className="font-light text-gray-500 text-[15px] tracking-wider">
-            {location?.state?.product?.category === "men"
+            {product?.category?.slug === "men"
               ? "Men"
-              : location?.state?.product?.category === "women"
+              : product?.category?.slug === "women"
                 ? "Women"
-                : location?.state?.product?.category === "shoes"
+                : product?.category?.slug === "shoes"
                   ? "Shoes"
                   : "Packs $ Gear"}
           </p>
           <h2 className="font-medium text-[24px] tracking-wider">
-            {location?.state?.product?.title}
+            {product?.title}
           </h2>
           <p className="font-medium text-[24px] tracking-wider">
-            ${location?.state?.product?.price}
+            ${product?.price}
           </p>
           <p className="font-light text-gray-500 text-[16px] tracking-wider">
-            Id eget magna velit lectus dui est, pellentesque dignissim
-            sollicitudin accumsan in maecenas vitae dignissim bibendum feugiat
-            purus morbi dui rhoncus elementum odio amet.
+            {product?.shortDescription}
           </p>
           <div className="w-full flex items-center gap-4">
             <div className="flex items-center">
@@ -72,14 +70,7 @@ const ProductDetails = () => {
           <div className="w-full border" />
           <div className="flex items-center flex-wrap gap-6">
             <span className="font-light text-gray-500 text-[15px] tracking-wider">
-              Category:{" "}
-              {location?.state?.product?.category === "men"
-                ? "Men"
-                : location?.state?.product?.category === "women"
-                  ? "Women"
-                  : location?.state?.product?.category === "shoes"
-                    ? "Shoes"
-                    : ""}
+              Category: {product?.category?.title}
             </span>
             <span className="font-light text-gray-500 text-[15px] tracking-wider">
               Tags: backpack, hiking, women, men
@@ -118,18 +109,7 @@ const ProductDetails = () => {
       <div className="w-full border-t mt-10 pt-6 flex flex-col items-start gap-4">
         <h3 className="font-medium text-[18px] tracking-wider">Description</h3>
         <p className="font-light text-gray-500 text-[16px] tracking-wider">
-          Adipiscing nisi, lectus sit pharetra nunc, sit mi egestas sit velit
-          tristique quisque et amet odio donec mauris integer imperdiet arcu
-          orci, dignissim id duis dictum malesuada nunc, tempor felis.
-        </p>
-        <p className="font-light text-gray-500 text-[16px] tracking-wider">
-          Arcu vitae commodo in morbi tortor, id odio ullamcorper elit cras
-          tempus libero ac, duis lorem rhoncus, purus ultrices tempor, egestas
-          dignissim arcu, nunc ullamcorper massa ultrices gravida in orci eu
-          pulvinar viverra egestas egestas feugiat sit ultricies eu faucibus
-          facilisis nibh dui mauris ornare lacus sapien a duis ut tempor,
-          aliquam arcu, facilisi cras sed integer mauris sem integer cursus
-          consequat aliquet turpis.
+          {product?.description}
         </p>
       </div>
     </div>

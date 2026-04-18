@@ -13,7 +13,7 @@ exports.protect = async (req, res, next) => {
   }
 
   if (!token) {
-    return res.status(401).json({ message: "Not authorized, token missing" });
+    return res.status(401).json({ message: "Unauthorized, token missing" });
   }
 
   try {

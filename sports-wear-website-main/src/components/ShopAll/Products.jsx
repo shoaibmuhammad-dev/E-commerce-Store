@@ -5,7 +5,7 @@ import { PACKS_GEAR } from "../../constants/packsGear";
 import { MEN_PRODUCTS } from "../../constants/menProdcts";
 import { WOMEN_PRODUCTS } from "../../constants/womenProducts";
 
-const Products = () => {
+const Products = ({ products }) => {
   return (
     <div
       className={`w-full py-6 lg:py-12 2xl:pb-40 ${styles.paddingHorizontal}`}
@@ -27,17 +27,7 @@ const Products = () => {
       </div>
 
       <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6 lg:gap-y-12 gap-y-6 mt-10">
-        {MEN_PRODUCTS?.map((product, index) => {
-          return <ProductCard product={product} key={index} />;
-        })}
-      </div>
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6 lg:gap-y-12 gap-y-6 mt-10">
-        {PACKS_GEAR?.map((product, index) => {
-          return <ProductCard product={product} key={index} />;
-        })}
-      </div>
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6 lg:gap-y-12 gap-y-6 mt-10">
-        {WOMEN_PRODUCTS?.map((product, index) => {
+        {products?.map((product, index) => {
           return <ProductCard product={product} key={index} />;
         })}
       </div>

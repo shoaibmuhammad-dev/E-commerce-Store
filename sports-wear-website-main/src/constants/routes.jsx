@@ -19,7 +19,7 @@ export const routes = [
   },
   {
     title: "Home Page",
-    url: "/products/:title",
+    url: "/products/:slug",
     page: <Layout pages={<ProductPage />} />,
   },
   {

@@ -23,7 +23,7 @@ router.post(
   createProduct,
 );
 
-router.get("/", protect, getAllProducts);
+router.get("/", getAllProducts);
 router.get("/:slug", getProduct);
 
 router.patch(

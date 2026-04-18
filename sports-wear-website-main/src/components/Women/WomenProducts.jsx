@@ -3,7 +3,7 @@ import { styles } from "../../styles/styles";
 import ProductCard from "../Global/ProductCard";
 import { WOMEN_PRODUCTS } from "../../constants/womenProducts";
 
-const WomenProducts = () => {
+const WomenProducts = ({ products }) => {
   return (
     <div
       className={`w-full py-6 lg:py-12 2xl:pb-40 ${styles.paddingHorizontal}`}
@@ -25,7 +25,7 @@ const WomenProducts = () => {
       </div>
 
       <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6 lg:gap-y-12 gap-y-6 mt-10">
-        {WOMEN_PRODUCTS?.map((product, index) => {
+        {products?.map((product, index) => {
           return <ProductCard key={index} product={product} />;
         })}
       </div>
